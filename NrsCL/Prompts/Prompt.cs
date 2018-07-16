@@ -13,5 +13,11 @@
             var prompt = new TypePrompt();
             return prompt.ShowQuitable(message);
         }
+
+        public static string Show(string message)
+        {
+            var prompt = new TypePrompt();
+            return prompt.Show(message);
+        }
     }
 }

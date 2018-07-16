@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using NrsCl.Consoles;
 
 namespace NrsCl.Prompts
@@ -18,8 +16,24 @@ namespace NrsCl.Prompts
                 if (input.Length > 0)
                 {
                     var isQuit = input == "q" || input == "quit";
-                    return (isQuit, input);
+                    return (isQuit, rawInput);
                 }
+                CLIConsole.WriteLine("type any word.", PromptConfig.PromptColor);
+            }
+        }
+
+        public string Show(string message)
+        {
+            CLIConsole.WriteLine(message, PromptConfig.PromptColor);
+            while (true)
+            {
+                CLIConsole.Write(">");
+                var input = Console.ReadLine();
+                if (input.Length > 0)
+                {
+                    return input;
+                }
+
                 CLIConsole.WriteLine("type any word.", PromptConfig.PromptColor);
             }
         }
