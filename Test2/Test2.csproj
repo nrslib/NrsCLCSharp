@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ED98073C-D801-4548-970C-E97FEF1CA69D}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NrsCl</RootNamespace>
-    <AssemblyName>NrsCl</AssemblyName>
+    <ProjectGuid>{6499E3BE-6B10-4694-8167-86F7E78C8980}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Test2</RootNamespace>
+    <AssemblyName>Test2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,9 +34,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,21 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\CLICommandConfig.cs" />
-    <Compile Include="Commands\CLICommandsContainer.cs" />
-    <Compile Include="Commands\ICLICommand.cs" />
-    <Compile Include="Commands\ICLICommandWithInitialize.cs" />
-    <Compile Include="Consoles\CLIConsole.cs" />
-    <Compile Include="Driver.cs" />
-    <Compile Include="Environment\CLIContext.cs" />
-    <Compile Include="Prompts\Prompt.cs" />
-    <Compile Include="Prompts\PromptConfig.cs" />
-    <Compile Include="Prompts\TypePrompt.cs" />
-    <Compile Include="Prompts\YesNoPrompt.cs" />
+    <Compile Include="MyCommand.cs" />
+    <Compile Include="MyCommandWithInitialize.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NrsCl\NrsCl.csproj">
+      <Project>{ed98073c-d801-4548-970c-e97fef1ca69d}</Project>
+      <Name>NrsCl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
